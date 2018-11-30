@@ -1,0 +1,58 @@
+<div class="banner-slider" style=" width: 100%; height:900px;">
+    <div class="slider">
+      <div class="main-tagline">
+        <h5>{{lifeatmultidots.banner_title}}</h5>
+      </div>
+      <div class="sub-tagline">
+          <h6>{{lifeatmultidots.banner_subtitle}}</h6>
+      </div>
+    </div>
+  </div> 
+
+  <section class="ceo-blockquote">
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+        <div class="row">
+            <div class="col-xs-12">
+                <p [innerHTML]="lifeatmultidots.blockquotetext | safehtml: 'html'">  </p>
+                <span class="writer-name">–&nbsp;{{lifeatmultidots.blockquoteclientname}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="image-content-block">
+    <div class="container-full">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 image-block wow slideInLeftSmooth" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: slideInLeftSmooth;">
+                <div id="lifeatmd-video" class="gallery-image-video video-block" style="height: 624px;">
+                    <iframe height="100%" [src]="lifeatmultidots.contetblk_iframe | safehtml: 'resourceUrl'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                    <a class="iframe-popup" href="https://www.youtube.com/embed/1jf96rs8X4Q"></a>
+                </div>
+            </div>
+            <div id="lifeatmd-content" class="col-lg-6 col-md-12 col-sm-12 col-xs-12 content-block wow slideInRightSmooth" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: slideInRightSmooth;">
+            <div [innerHTML]="lifeatmultidots.contetblktxt | safehtml: 'html'">  </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="our-forte-section">
+    <div class="container-fluid">
+        <h2>{{fortheboxs.ourforthesection_tagline}}</h2>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngFor = "let fortebox of fortheboxs.ourforthebox">
+                <div class="our-forte-box">
+                    <div class="forte-icon">                       
+                        <img src="../../assets/images/{{fortebox.image}}">
+                    </div>
+                    <div class="forte-content">
+                        <h3>{{fortebox.forthe_title}}</h3>
+                        <hr>
+                        <p>{{fortebox.forthe_cnt}}</p>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+</section>
+<app-igniting-slider></app-igniting-slider>
+

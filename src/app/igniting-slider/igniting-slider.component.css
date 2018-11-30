@@ -1,0 +1,3 @@
+.home-gallery .item{height: 480px;overflow: hidden;}
+.home-gallery .item img{height: 100%;}
+.home-gallery .item iframe{width:100%;height: 100%;}

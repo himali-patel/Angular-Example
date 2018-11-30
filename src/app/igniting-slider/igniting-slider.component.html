@@ -1,0 +1,17 @@
+<section class="home-gallery lifeatmd-gallery">
+    <div class="container-full">
+        <h2>{{igniting_slider.slider_title}}</h2>
+        <p class="quotes-from-other" [innerHTML]="igniting_slider.slider_quote | safehtml: 'html'"></p>
+        <p>{{igniting_slider.slider_tagline}}</p>
+    </div>
+    <owl-carousel
+    [options]="{items: 4, dots: false,   margin: 5, navigation: false,mergeFit: true ,height:400}"
+    [carouselClasses]="['owl-theme', 'sliding']">
+    <div class="item" *ngFor = "let slideritems of igniting_slider.igniting_slider_images">
+         <!-- <img src="../../assets/images/{{slideritems.imgs}}">  -->
+<img *ngIf="slideritems.type == 'image'" src="../../assets/images/{{slideritems.imgs}}"/> 
+<iframe *ngIf="slideritems.type == 'video'" [src]="slideritems.vid | safehtml: 'resourceUrl'"></iframe>
+        
+    </div>
+</owl-carousel>
+</section>

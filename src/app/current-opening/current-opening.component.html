@@ -1,0 +1,32 @@
+<div class="banner-slider" style=" width: 100%; height:900px;">
+  <div class="slider">
+
+  </div>
+</div>
+<section class="opening-section current-opening-page">
+  <div class="container-fluid">
+    <h2>{{currentopening.co_title}}</h2>
+    <p>{{currentopening.co_text}}</p>
+    <!-- <app-modal-basic></app-modal-basic>  -->
+    <div class="row opening-box-layout">
+     
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow slideInUpSmooth"  data-wow-delay="0.1s" *ngFor = "let openingslide of currentopening.current_op_block">
+        <div class="opening-slide">
+          <a class="opening-name" href="{{openingslide.pos_link}}">{{openingslide.opening_title}}</a>
+          <span class="experince">{{openingslide.pos_exp}}</span><span class="vacancy">{{openingslide.pos_vac}}</span>
+            <a class="btn empty-btn submitresume-btn" attr.data="{{openingslide.opening_title}}" href="javacript:void(0)"  (click)="open($event)">Apply Now</a>
+            <a class="opening-full-box-link" href="{{openingslide.pos_link}}"></a></div>
+      </div>
+
+    </div>
+    <div class="col-xs-12">
+      <hr />
+      <p class="apply-anyway wow slideInUpSmooth" data-wow-delay="0.1s">Are you interested but do not see a position
+        that fits? Get ready to rediscover yourself!</p>
+      <a class="btn orange-btn  wow slideInUpSmooth" data-wow-delay="0.1s" routerLink = "/recuritment">Apply
+        Now</a>
+  
+    </div>
+  </div>
+</section>
+<!-- Open position End -->

@@ -1,3 +1,11 @@
 export const environment = {
-  production: true
+  production: false
+  // firebase: {
+  //   apiKey: "AIzaSyBwWWno2M8ZQyW3jrD4UrGxphuWayg2PgI",
+  //   authDomain: "fcc-book-trade.firebaseapp.com",
+  //   databaseURL: "https://fcc-book-trade.firebaseio.com",
+  //   projectId: "fcc-book-trade",
+  //   storageBucket: "",
+  //   messagingSenderId: "434859670011"
+  // }
 };

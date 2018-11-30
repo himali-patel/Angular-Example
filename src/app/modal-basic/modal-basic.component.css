@@ -1,0 +1,6 @@
+    .submitresume-form-content{width: 100% !important;}
+    .modal-dialog { width: 1500px !important; margin: 30px auto; } 
+    .submitresume-form-content{margin:0px auto} 
+    .contact-form-block form #position_applied { border: 1px solid #ff6b34; color: #ff6b34; } 
+    .invalid-feedback{position: absolute; bottom: 5px; left: 0px; right: 0; text-align: left; color: red;display:block;padding: 0px 15px;}
+    .md-career-custom-checkbox .invalid-feedback{ bottom: 0px; top: 20px;}

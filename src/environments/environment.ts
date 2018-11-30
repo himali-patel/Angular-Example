@@ -4,7 +4,18 @@
 
 export const environment = {
   production: false
+  // firebase: {
+  //   apiKey: "AIzaSyBwWWno2M8ZQyW3jrD4UrGxphuWayg2PgI",
+  //   authDomain: "fcc-book-trade.firebaseapp.com",
+  //   databaseURL: "https://fcc-book-trade.firebaseio.com",
+  //   projectId: "fcc-book-trade",
+  //   storageBucket: "",
+  //   messagingSenderId: "434859670011"
+  // }
 };
+
+
+
 
 /*
  * In development mode, to ignore zone related error stack frames such as
