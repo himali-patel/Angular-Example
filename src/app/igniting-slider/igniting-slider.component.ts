@@ -7,7 +7,7 @@ import { ConfigService } from '../config.service';
   styleUrls: ['./igniting-slider.component.css']
 })
 export class IgnitingSliderComponent implements OnInit {
-igniting_slider={}
+igniting_slider
   constructor(private config:ConfigService) { }
 
   ngOnInit() {

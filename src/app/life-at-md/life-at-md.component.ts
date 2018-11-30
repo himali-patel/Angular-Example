@@ -11,8 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
   
 })
 export class LifeAtMdComponent implements OnInit {
-  lifeatmultidots = {}
-  fortheboxs={}
+  lifeatmultidots;
+  fortheboxs
   constructor(private config:ConfigService , private httpService: HttpClient) { }
   
   arrBirds: string [];

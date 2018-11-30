@@ -12,7 +12,7 @@ declare var $ :any;
   styleUrls: ['./current-opening.component.css']
 })
 export class CurrentOpeningComponent implements OnInit { 
-  currentopening={}
+  currentopening
 
   constructor(private config:ConfigService , private modalService:NgbModal) { }
   open(event) {    

@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
     myParams: object = {};
     width: number = 100;
     height: number = 100;
-    home_content={}
+    home_content
   constructor(private config: ConfigService) { }
 
   ngOnInit() {
