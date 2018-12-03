@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+import { AngularFireStorage } from 'angularfire2/storage';
+import * as firebase from 'firebase';
+// import * from 'firebase'
 
 
 @Component({
@@ -11,8 +16,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ModalBasicComponent implements OnInit  {
   registerForm: FormGroup;
   submitted = false;
+  item: string;
+  Phone: string;
+  FullName;
+  Email;
+  exp;
+  Noticeperiod;
+  Resume;
+  position;
+  itemValue = '';
+  ref;
 
-  constructor(private formBuilder: FormBuilder) { }
+  items: Observable<any[]>;
+
+  constructor(private formBuilder: FormBuilder , public db: AngularFireDatabase , private storage: AngularFireStorage) { 
+    this.items = db.list('items').valueChanges();
+  }
       ngOnInit() {
         this.registerForm = this.formBuilder.group({
             FullName: ['', Validators.required],
@@ -20,18 +39,49 @@ export class ModalBasicComponent implements OnInit  {
             CurrentCTC: ['', Validators.required],
             ExpectedCTC: ['', Validators.required],
             Resume: ['', Validators.required],
-            policy_check: ['', Validators.required]
+            policy_check: ['', Validators.required],         
+            Phone: ['', Validators.required],
+            exp:[''],         
+            Noticeperiod:[''],    
+            position:['']  
         
-            
         });
+ 
+
       }
     get f() { return this.registerForm.controls; }
 
-    onSubmit() {
-      this.submitted = true;    
+    selectChangeHandler (event: any) {
+      
+      this.exp = event.target.value;
+   
+      console.log(this.exp);
     
-      if (this.registerForm.valid) {
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+    }
+    selectChange(event) {
+            //update the ui
+ 
+    this.Noticeperiod = event.target.value;
+       console.log(this.Noticeperiod);
+    }
+    upload(event1) {
+      // create a random id
+      const randomId = Math.random().toString(36).substring(2);
+      // create a reference to the storage bucket location
+      this.ref = this.storage.ref(randomId);
+      // the put method creates an AngularFireUploadTask
+      // and kicks off the upload
+      this.Resume = this.ref.put(event1.target.files[0]);
+      console.log(this.Resume);
+    }
+    onSubmit() {      
+      this.submitted = true;    
+         if (this.registerForm.valid) {
+        console.log(this.registerForm.getRawValue())   ;
+        this.db.list('/items').push({ content:this.registerForm.value });       
+        // this.itemValue = '';
+        alert('SUCCESS!! :-)');
+        this.registerForm.reset();
       } else {
         
       }

@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { ParticlesModule } from 'angular-particle';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { OwlModule } from 'ng2-owl-carousel';
 import { SiteHeaderComponent } from './layout/site-header/site-header.component';
@@ -21,7 +26,9 @@ import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import { RecruitmentProcessComponent } from './recruitment-process/recruitment-process.component';
 import { CurrentOpeningComponent } from './current-opening/current-opening.component';
 import * as $ from "jquery";
+import * as firebase from 'firebase';
 import { BlogComponent } from './blog/blog.component';
+import { environment } from '../environments/environment';
 
 
 
@@ -55,7 +62,10 @@ import { BlogComponent } from './blog/blog.component';
     FormsModule,
     ReactiveFormsModule,
     ParticlesModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, // for database
+    AngularFireStorageModule
 
 
   ],

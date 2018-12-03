@@ -54,13 +54,13 @@
         </div> -->
 
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <input type="text" value="" size="40" class="" placeholder="Full Name*" formControlName="FullName" [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }" />
+        <input type="text" value="" size="40" class="" placeholder="Full Name*" formControlName="FullName" [(ngModel)]="FullName" [ngClass]="{ 'is-invalid': submitted && f.FullName.errors }" />
         <div *ngIf="submitted && f.FullName.errors" class="invalid-feedback">
           <div *ngIf="f.FullName.errors.required">Full Name is required</div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <input type="email" value="" size="40" placeholder="E-mail*" formControlName="Email" [ngClass]="{ 'is-invalid': submitted && f.Email.errors}" />
+        <input type="email" value="" size="40" placeholder="E-mail*" formControlName="Email" [(ngModel)]="Email"  [ngClass]="{ 'is-invalid': submitted && f.Email.errors}" />
         <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
           <div *ngIf="f.Email.errors.required">Email is required</div>
           <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
@@ -68,10 +68,10 @@
       </div>
 
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <input type="tel" value="" size="40" placeholder="Phone Number" />
+        <input type="tel" value="" size="40" placeholder="Phone Number" formControlName="Phone" id="Phone" [(ngModel)]="Phone"  [ngClass]="{ 'is-invalid': submitted}"/>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <select>
+        <select  formControlName="exp"  [(ngModel)]="exp"  (change)="selectChangeHandler($event)"  [ngClass]="{ 'is-invalid': submitted}">
           <option value="Experience">Experience</option>
           <option value="1 Year">1 Year</option>
           <option value="2Years">2Years</option>
@@ -81,7 +81,7 @@
         </select>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <select>
+        <select formControlName="Noticeperiod"  [(ngModel)]="Noticeperiod"   (change)="selectChange($event)"   [ngClass]="{ 'is-invalid': submitted}" >
           <option value="Notice Period Immediate">Notice Period Immediate</option>
           <option value="1 Month">1 Month</option>
           <option value="2 Months">2 Months</option>
@@ -89,22 +89,23 @@
         </select>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <input type="text" value="" size="40" placeholder="Current CTC*" formControlName="CurrentCTC" [ngClass]="{ 'is-invalid': submitted && f.CurrentCTC.errors }" />
+        <input type="text" value="" size="40" placeholder="Current CTC*" formControlName="CurrentCTC"   [ngClass]="{ 'is-invalid': submitted && f.CurrentCTC.errors }" />
         <div *ngIf="submitted && f.CurrentCTC.errors" class="invalid-feedback">
           <div *ngIf="f.CurrentCTC.errors.required">Current CTC is required</div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <input type="text" formControlName="ExpectedCTC" value="" size="40" placeholder="Expected CTC*" [ngClass]="{ 'is-invalid': submitted && f.ExpectedCTC.errors }" />
+        <input type="text" formControlName="ExpectedCTC" value="" size="40" placeholder="Expected CTC*"  [ngClass]="{ 'is-invalid': submitted && f.ExpectedCTC.errors }" />
         <div *ngIf="submitted && f.ExpectedCTC.errors" class="invalid-feedback">
           <div *ngIf="f.ExpectedCTC.errors.required">Expected CTC is required</div>
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <input type="text" name="text-977" value="" size="40" id="position_applied" placeholder="Position Applied for" />
+        <input type="text" name="text-977" value="" size="40" id="position_applied" placeholder="Position Applied for"   #position />
+     
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 md-file-input">
-        <input type="file" name="file-376" size="40" formControlName="Resume" [ngClass]="{ 'is-invalid': submitted && f.Resume.errors }" /><b
+        <input type="file" name="file-376" size="40" formControlName="Resume" [ngClass]="{ 'is-invalid': submitted && f.Resume.errors }" (change)="upload($event1)" accept=".pdf,.doc"  /><b
           class="file-format">Allowed formats: <small>.pdf, .doc</small></b>
         <div *ngIf="submitted && f.Resume.errors" class="invalid-feedback">
           <div *ngIf="f.Resume.errors.required"> The field is required.</div>
@@ -121,6 +122,11 @@
           <div *ngIf="f.policy_check.errors.required">The field is required.</div>
         </div>
       </div>
+      <!-- <label for="item">Item</label> 
+      <input type="text"  class="form-control" placeholder="Enter content..." formControlName="item"  id="item"   value=""  [(ngModel)]="item" [ngClass]="{ 'is-invalid': submitted && f.item.errors }"  >
+      <div *ngIf="submitted && f.item.errors" class="invalid-feedback">
+        <div *ngIf="f.item.errors.required">The field is required.</div>
+      </div> -->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <button class="btn btn-primary">Apply Now</button>
       </div>
