@@ -105,7 +105,7 @@
      
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 md-file-input">
-        <input type="file" name="file-376" size="40" formControlName="Resume" [ngClass]="{ 'is-invalid': submitted && f.Resume.errors }" (change)="upload($event1)" accept=".pdf,.doc"  /><b
+        <input type="file" name="file-376" size="40" formControlName="Resume" [ngClass]="{ 'is-invalid': submitted && f.Resume.errors }" (change)="upload($event)" accept=".pdf,.doc"  /><b
           class="file-format">Allowed formats: <small>.pdf, .doc</small></b>
         <div *ngIf="submitted && f.Resume.errors" class="invalid-feedback">
           <div *ngIf="f.Resume.errors.required"> The field is required.</div>

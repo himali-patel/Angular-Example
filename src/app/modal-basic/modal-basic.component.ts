@@ -64,14 +64,14 @@ export class ModalBasicComponent implements OnInit  {
     this.Noticeperiod = event.target.value;
        console.log(this.Noticeperiod);
     }
-    upload(event1) {
+    upload(event) {
       // create a random id
       const randomId = Math.random().toString(36).substring(2);
       // create a reference to the storage bucket location
       this.ref = this.storage.ref(randomId);
       // the put method creates an AngularFireUploadTask
       // and kicks off the upload
-      this.Resume = this.ref.put(event1.target.files[0]);
+      this.Resume = this.ref.put(event.target.files[0]);
       console.log(this.Resume);
     }
     onSubmit() {      
